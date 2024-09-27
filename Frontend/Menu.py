@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import search  # Ensure this is the correct import for your search page
 import login
+import register
 # Sidebar navigation
 with st.sidebar:
     selected = option_menu(
@@ -15,4 +16,4 @@ if selected == "Login":
 elif selected == "Search":
     search.search_page()  # Make sure this function exists in `search.py`
 elif selected == "Signup":
-    st.title("Signup Page - Coming Soon!")
+    register.user_registration_page()

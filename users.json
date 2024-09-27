@@ -1,0 +1,44 @@
+{
+    "users": {
+      "1000": {
+        "registered": true,
+        "username": "John Doe",
+        "email": "john@example.com",
+        "preferences": {
+          "room_type": "deluxe",
+          "city": "Paris"
+        }
+      },
+      "1001": {
+        "registered": true,
+        "username": "Jane Smith",
+        "email": "jane@example.com",
+        "preferences": {
+          "room_type": "standard",
+          "city": "New York"
+        }
+      }
+    },
+    "reviews": {
+      "1000": {
+        "hotel_id_1": {
+          "rating": 4,
+          "review": "Great place!",
+          "timestamp": "2024-09-27"
+        },
+        "hotel_id_2": {
+          "rating": 5,
+          "review": "Loved it!",
+          "timestamp": "2024-09-28"
+        }
+      },
+      "1001": {
+        "hotel_id_3": {
+          "rating": 3,
+          "review": "Okay experience",
+          "timestamp": "2024-09-28"
+        }
+      }
+    }
+  }
+  

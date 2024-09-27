@@ -17,9 +17,10 @@ if not firebase_admin._apps:
 # Load hotel data and user-hotel matrix
 with open('/Users/sahanpramuditha/Documents/GitHub/Hotel-Recommendation/Backend/hotellist.pkl', 'rb') as file:
     hotel_df = pickle.load(file)
+    
+    
 
-with open('/Users/sahanpramuditha/Documents/GitHub/Hotel-Recommendation/Backend/user_hotel_matrix.pkl', 'rb') as file:
-    user_hotel_matrix = pickle.load(file)
+user_hotel_matrix = hotel_df.pivot_table(index='user_id', columns='hotelname', values='starrating', fill_value=0)
 
 user_hotel_matrix.index = user_hotel_matrix.index.astype(str)  # Ensure IDs are strings
 
@@ -55,11 +56,15 @@ class HotelRecSys:
 def display_hotel_list_item(hotel, score):
     """
     Displays a hotel in a list with a small border around it.
+    
     """
+    default_image_url = 'https://st4.depositphotos.com/1012074/25300/v/450/depositphotos_253009090-stock-illustration-best-luxury-hotel-icon.jpg'
     st.markdown(f"""
         <div style="border: 1px solid #ddd; border-radius: 5px; padding: 10px; margin-bottom: 10px;">
+            <img src="{default_image_url}" alt="{hotel}" width="80" style="float: left; margin-right: 10px;">
             <h4 style="margin: 0;">{hotel}</h4>
             <p style="margin: 0;">Recommendation Score: <strong style="color: {score_color(score)};">{score:.2f}</strong></p>
+    
         </div>
         """, unsafe_allow_html=True)
 
