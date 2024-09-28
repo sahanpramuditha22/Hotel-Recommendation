@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load the DataFrame (ensure this path is correct)
-df = pd.read_pickle('/Users/sahanpramuditha/Documents/GitHub/Hotel-Recommendation/Backend/hotels.pkl')
+df = pd.read_pickle('../Backend/hotels.pkl')
 
 # Recommendation function to filter hotels
 def recommend(df, room_type, country, city, property_type):

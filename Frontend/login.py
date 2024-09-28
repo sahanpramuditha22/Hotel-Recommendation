@@ -9,16 +9,14 @@ from firebase_admin import credentials, db, auth
 
 # Firebase initialization
 if not firebase_admin._apps:
-    cred = credentials.Certificate("/Users/sahanpramuditha/Documents/GitHub/Hotel-Recommendation/hotelrecommend-8cec3-firebase-adminsdk-crlft-d45010beb2.json")
+    cred = credentials.Certificate("../hotelrecommend-8cec3-firebase-adminsdk-crlft-d45010beb2.json")
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://hotelrecommend-8cec3-default-rtdb.asia-southeast1.firebasedatabase.app/'
     })
 
 # Load hotel data and user-hotel matrix
-with open('/Users/sahanpramuditha/Documents/GitHub/Hotel-Recommendation/Backend/hotellist.pkl', 'rb') as file:
+with open('../Backend/hotellist.pkl', 'rb') as file:
     hotel_df = pickle.load(file)
-    
-    
 
 user_hotel_matrix = hotel_df.pivot_table(index='user_id', columns='hotelname', values='starrating', fill_value=0)
 
